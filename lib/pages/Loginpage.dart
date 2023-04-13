@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:oppion/main.dart';
-import 'utils/auth_utils.dart';
+import 'Utils.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
