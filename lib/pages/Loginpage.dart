@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:oppion/main.dart';
+import 'ForgotPasswordPage.dart';
 import 'Utils.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,12 @@ class _LoginpageState extends State<Loginpage> {
         SizedBox(height: 60),
         FlutterLogo(size: 120),
         SizedBox(height: 20),
+        Text(
+          'Welcome Back',
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: 20),
         TextField(
           controller: emailController,
           cursorColor: Colors.black,
@@ -45,6 +52,19 @@ class _LoginpageState extends State<Loginpage> {
         ),
         SizedBox(height: 20,),
         ElevatedButton.icon(style: ElevatedButton.styleFrom(minimumSize: Size.fromHeight(50),),onPressed: signIn, icon: Icon(Icons.lock_open, size:32), label: Text('Sign In',style:TextStyle(fontSize: 24),),),
+        SizedBox(height: 24),
+        GestureDetector(
+          child: Text(
+            'Forgot Password',
+            style: TextStyle(
+              decoration: TextDecoration.underline,
+              color: Theme.of(context).colorScheme.secondary,
+              fontSize: 20,
+            ),
+          ),
+          onTap: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => ForgotPasswordPage(),)),
+        ),
         SizedBox(height: 24,),
         RichText(text: TextSpan(
           style: TextStyle(color: Colors.black, fontSize: 18),
@@ -74,6 +94,7 @@ class _LoginpageState extends State<Loginpage> {
           password: passwordController.text.trim(),);
     } on FirebaseAuthException catch (e){
       print(e);
+      Utils.showSnackBar(e.message);
     }
 
     navigatorKey.currentState!.popUntil((route) => route.isFirst);

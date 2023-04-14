@@ -18,8 +18,13 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
+                'Signed in as',
+                style: TextStyle(fontSize: 16),
+              ),
+              SizedBox(height: 8,),
+              Text(
                 user.email!,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 40,),
               ElevatedButton.icon(style: ElevatedButton.styleFrom(minimumSize: Size.fromHeight(50),),onPressed: ()=> FirebaseAuth.instance.signOut(), icon: Icon(Icons.arrow_back, size:32), label: Text('Sign Out',style:TextStyle(fontSize: 24),),),
