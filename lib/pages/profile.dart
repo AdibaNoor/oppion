@@ -15,7 +15,7 @@ class _ProfileState extends State<Profile> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('Home'),
+          title: Text('Profile'),
         ),
         body: Padding(
           padding: EdgeInsets.all(32),
