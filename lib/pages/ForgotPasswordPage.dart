@@ -32,7 +32,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Recieve an email to\nreset your password',
+            Text('Enter your email address to\nreset your password',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 24),),
             SizedBox(height: 20),
