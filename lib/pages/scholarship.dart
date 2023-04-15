@@ -106,6 +106,8 @@ class _ScholarshipState extends State<Scholarship> {
                                     },
                                     child: Text("Fav")),
                               ),
+
+
                               SizedBox(
                                 height: 10,
                               ),

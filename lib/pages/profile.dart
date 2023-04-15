@@ -32,7 +32,7 @@ class _ProfileState extends State<Profile> {
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 40,),
-              ElevatedButton.icon(style: ElevatedButton.styleFrom(minimumSize: Size.fromHeight(50),),onPressed: ()=> FirebaseAuth.instance.signOut(), icon: Icon(Icons.arrow_back, size:32), label: Text('Sign Out',style:TextStyle(fontSize: 24),),),
+              ElevatedButton.icon(style: ElevatedButton.styleFrom(minimumSize: Size.fromHeight(50),),onPressed: () => FirebaseAuth.instance.signOut(), icon: Icon(Icons.arrow_back, size:32), label: Text('Sign Out',style:TextStyle(fontSize: 24),),),
             ],
           ),
         )
