@@ -98,8 +98,8 @@ class _SignUppageState extends State<SignUppage> {
               shadowColor: Color(0xff219ebc)),
             onPressed: signUp, icon: Icon(Icons.arrow_forward, size:28,color: Color(
                 0xff023047),),
-            label: Text('Sign Up',style:TextStyle(fontSize: 22,color: Color(
-                0xff023047)),),),
+            label: Text('Sign Up',style:TextStyle(fontSize: 22,
+                color: Color(0xff023047)),),),
           SizedBox(height: 20,),
           RichText(text: TextSpan(
             style: TextStyle(color: Color(0xffffb703), fontSize: 18),
@@ -124,7 +124,6 @@ class _SignUppageState extends State<SignUppage> {
   Future signUp() async {
     final isValid = formKey.currentState!.validate();
     if (!isValid) return;
-
     showDialog(context: context, barrierDismissible: false,
       builder: (context) => Center(child: CircularProgressIndicator(
         backgroundColor: Color(0xff023047),

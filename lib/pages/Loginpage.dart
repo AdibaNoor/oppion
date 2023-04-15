@@ -93,7 +93,7 @@ class _LoginpageState extends State<Loginpage> {
             icon: Icon(Icons.lock_open, size:28,color: Color(0xff023047),),
             label: Text('Sign In',style:TextStyle(fontSize: 22,color: Color(
                 0xff023047)),),),
-          SizedBox(height: 14),
+          SizedBox(height: 30),
           GestureDetector(
             child: Text(
               'Forgot Password',

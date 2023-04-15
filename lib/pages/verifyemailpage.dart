@@ -62,8 +62,11 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
   @override
   Widget build(BuildContext context) => isEmailVerified ?
       HomePage() : Scaffold(
+    backgroundColor:  Color(0xff023047),
       appBar: AppBar(
-      title: Text('Verify Email'),
+        elevation: 0,
+        backgroundColor:  Color(0xff023047),
+      title: Text('Verify Email',style: TextStyle(color: Color(0xfffb8500)),),
     ),
       body: Padding(
       padding: EdgeInsets.all(16),
@@ -72,18 +75,19 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
         children: [
           Text(
             'A Verification email has been sent to your email.',
-            style: TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: 20,color: Color(0xff8ecae6)),
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 24,),
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
-              minimumSize: Size.fromHeight(50),
+              minimumSize: Size(150,50),
+              backgroundColor: Color(0xff8ecae6)
             ),
               icon : Icon(Icons.email, size:32),
               label: Text(
                 'Resend Email',
-                style: TextStyle(fontSize: 24),
+                style: TextStyle(fontSize: 24,color: Color(0xffffb703)),
               ),
               onPressed: canResendEmail ? sendVerificationEmail : null,
               ),
@@ -95,7 +99,7 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
               onPressed: () => FirebaseAuth.instance.signOut(),
               child: Text(
                 'Cancel',
-                style: TextStyle(fontSize: 24),
+                style: TextStyle(fontSize: 24,color: Color(0xff8ecae6)),
               ),
           )
         ],
