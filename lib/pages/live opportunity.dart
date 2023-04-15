@@ -19,7 +19,7 @@ class _LiveOpportunityState extends State<LiveOpportunity> {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
-    final refFM = FirebaseDatabase.instance.ref('FavF_M');
+    final refLO = FirebaseDatabase.instance.ref('FavLO');
     return Scaffold(
       backgroundColor: Color(0xff023047),
       appBar: AppBar(
@@ -102,6 +102,27 @@ class _LiveOpportunityState extends State<LiveOpportunity> {
                               SizedBox(
                                 height: 10,
                               ),
+                              Container(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  snapshot.child('POSITION').value.toString(),
+                                  style: TextStyle(
+                                    color: Color(0xff023047),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: Color(0xff8ecae6),
+                                ),
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 15, horizontal: 15),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -158,11 +179,12 @@ class _LiveOpportunityState extends State<LiveOpportunity> {
                                     ),
                                     child: ElevatedButton(
                                         onPressed: () {
-                                          refFM.push().set({
+                                          refLO.push().set({
                                             "NAME": snapshot
-                                                .child('NAME')
+                                                .child('COMPANY NAME')
                                                 .value
                                                 .toString(),
+                                            "POSITION":snapshot.child('POSITION').value.toString(),
                                             "LINK": snapshot
                                                 .child('LINK')
                                                 .value
