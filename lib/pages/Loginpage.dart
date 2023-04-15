@@ -23,65 +23,107 @@ class _LoginpageState extends State<Loginpage> {
     super.dispose();
   }
   @override
-  Widget build(BuildContext context) => SingleChildScrollView(
-    padding: EdgeInsets.all(16),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children:[
-        SizedBox(height: 60),
-        FlutterLogo(size: 120),
-        SizedBox(height: 20),
-        Text(
-          'Welcome Back',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-        ),
-        SizedBox(height: 20),
-        TextField(
-          controller: emailController,
-          cursorColor: Colors.black,
-          textInputAction: TextInputAction.next,
-          decoration: InputDecoration(labelText: 'Email'),
-        ),
-        SizedBox(height: 4,),
-        TextField(
-          controller: passwordController,
-          textInputAction: TextInputAction.done,
-          decoration: InputDecoration(labelText: 'Password'),
-          obscureText: true,
-        ),
-        SizedBox(height: 20,),
-        ElevatedButton.icon(style: ElevatedButton.styleFrom(minimumSize: Size.fromHeight(50),),onPressed: signIn, icon: Icon(Icons.lock_open, size:32), label: Text('Sign In',style:TextStyle(fontSize: 24),),),
-        SizedBox(height: 24),
-        GestureDetector(
-          child: Text(
-            'Forgot Password',
-            style: TextStyle(
-              decoration: TextDecoration.underline,
-              color: Theme.of(context).colorScheme.secondary,
-              fontSize: 20,
-            ),
+  Widget build(BuildContext context) => Scaffold(
+    backgroundColor: Color(0xff023047),
+    body: SingleChildScrollView(
+      padding: EdgeInsets.all(16),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children:[
+          SizedBox(height: 60),
+          Image.asset('assets/logo.png',
+          scale: 3,),
+          SizedBox(height: 20),
+          Text(
+            'Welcome Back',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold,color: Color(
+                0xff8ecae6)),
           ),
-          onTap: () => Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => ForgotPasswordPage(),)),
-        ),
-        SizedBox(height: 24,),
-        RichText(text: TextSpan(
-          style: TextStyle(color: Colors.black, fontSize: 18),
-              text: 'No account? ',
-            children: [
-              TextSpan(
-                recognizer: TapGestureRecognizer()
-                  ..onTap = widget.onClickedSignUp,
-                text:'Sign Up',
-                style: TextStyle(
-                  decoration: TextDecoration.underline,
-                  color: Theme.of(context).colorScheme.secondary,
-                ),
+          SizedBox(height: 20),
+          TextField(
+            controller: emailController,
+            cursorColor: Color(0xff8ecae6),
+            textInputAction: TextInputAction.next,
+            style: TextStyle(color: Color(0xff8ecae6)),
+            decoration: InputDecoration(
+                labelText: 'Email',
+            labelStyle: TextStyle(color: Color(0xffffb703),fontSize: 20),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0xffffb703)
+              )),
+            border: OutlineInputBorder(
+                borderSide: BorderSide(
+                    color: Color(0xff8ecae6)
+                )),
+            enabledBorder:  OutlineInputBorder(
+                borderSide: BorderSide(
+                    color: Color(0xff8ecae6)
+                )),
+             ),
+          ),
+          SizedBox(height: 10,),
+          TextField(
+            cursorColor: Color(0xff8ecae6),
+            controller: passwordController,
+            style: TextStyle(color: Color(0xff8ecae6)),
+            textInputAction: TextInputAction.done,
+            decoration: InputDecoration(labelText: 'Password',
+              labelStyle: TextStyle(color: Color(0xffffb703),fontSize: 20),
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                      color: Color(0xffffb703)
+                  )),
+              border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                      color: Color(0xff8ecae6)
+                  )),
+              enabledBorder:  OutlineInputBorder(
+                  borderSide: BorderSide(
+                      color: Color(0xff8ecae6)
+                  )),),
+            obscureText: true,
+          ),
+          SizedBox(height: 20,),
+          ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(minimumSize: Size.fromHeight(50),elevation: 10,
+                backgroundColor: Color(0xff8ecae6),
+                shadowColor: Color(0xff219ebc)),onPressed: signIn,
+            icon: Icon(Icons.lock_open, size:28,color: Color(0xff023047),),
+            label: Text('Sign In',style:TextStyle(fontSize: 22,color: Color(
+                0xff023047)),),),
+          SizedBox(height: 14),
+          GestureDetector(
+            child: Text(
+              'Forgot Password',
+              style: TextStyle(
+                decoration: TextDecoration.underline,
+                color: Color(0xff219ebc),
+                fontSize: 18,
               ),
-            ],
-        ),),
-      ],
+            ),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => ForgotPasswordPage(),)),
+          ),
+          SizedBox(height: 24,),
+          RichText(text: TextSpan(
+            style: TextStyle(color: Color(0xffffb703), fontSize: 18),
+                text: "Don't have an account? ",
+              children: [
+                TextSpan(
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = widget.onClickedSignUp,
+                  text:'Sign Up',
+                  style: TextStyle(
+                    decoration: TextDecoration.underline,
+                    color: Color(0xff219ebc),
+                  ),
+                ),
+              ],
+          ),),
+        ],
+      ),
     ),
   );
 
