@@ -6,6 +6,7 @@ import 'package:oppion/pages/Loginpage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:oppion/pages/Utils.dart';
 import 'package:oppion/pages/homepage.dart';
+import 'package:oppion/pages/verifyemailpage.dart';
 
 
 
@@ -44,7 +45,7 @@ class MainPage extends StatelessWidget{
         } else if (snapshot.hasError) {
           return Center(child: Text('Something went wrong!'));
         } else if (snapshot.hasData){
-          return HomePage();
+          return VerifyEmailPage();
         } else {
           return AuthPage();
         }
