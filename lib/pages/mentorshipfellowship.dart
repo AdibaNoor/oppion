@@ -1,3 +1,4 @@
+import 'package:oppion/pages/drawer.dart';
 import 'package:oppion/pages/homepage.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
@@ -28,27 +29,27 @@ class _MentorshipState extends State<Mentorship> {
     double h = MediaQuery.of(context).size.height;
     final refFM = FirebaseDatabase.instance.ref('FavF_M');
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xff023047),
       appBar: AppBar(
         leading: InkWell(
             onTap: () {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => HomePage()));
+                  MaterialPageRoute(builder: (context) => CustomDrawer()));
             },
             child: Icon(
               Icons.arrow_back_ios_rounded,
-              color: Colors.black,
+              color: Color(0xfffb8500),
             )),
         title: Text(
           'Mentorships & Fellowships',
           style: TextStyle(
-            color: Colors.black,
+            color: Color(0xfffb8500),
             fontSize: 22,
           ),
           textAlign: TextAlign.start,
         ),
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xff023047),
       ),
       body: Column(
         children: [
@@ -99,76 +100,79 @@ class _MentorshipState extends State<Mentorship> {
                               SizedBox(
                                 height: 10,
                               ),
-                              Theme(
-                                data: ThemeData(
-                                  elevatedButtonTheme: ElevatedButtonThemeData(
-                                    style: ElevatedButton.styleFrom(
-                                      onPrimary: Colors.blue,
-                                      primary: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                                child: ElevatedButton(
-                                    onPressed: () {
-                                      refFM.push().set({
-                                        "NAME": snapshot
-                                            .child('NAME')
-                                            .value
-                                            .toString(),
-                                        "LINK": snapshot
-                                            .child('LINK')
-                                            .value
-                                            .toString()
-                                      },
-                                      );
-                                    },
-                                    child: Text("Fav")),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Link(
-                                target: LinkTarget.self,
-                                uri: Uri.parse(
-                                    "snapshot.child('LINK').value.toString()"),
-                                // uri: Uri.parse("www.google.com"),
-                                builder: (context, followLink) => InkWell(
-                                  onTap: () => launch(
-                                      snapshot.child('LINK').value.toString()),
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          'Apply Now',
-                                          style: TextStyle(
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Link(
+                                    target: LinkTarget.self,
+                                    uri: Uri.parse(
+                                        "snapshot.child('LINK').value.toString()"),
+                                    // uri: Uri.parse("www.google.com"),
+                                    builder: (context, followLink) => InkWell(
+                                      onTap: () => launch(
+                                          snapshot.child('LINK').value.toString()),
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              'Apply Now',
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w800),
+                                            ),
+                                            Icon(
+                                              Icons.call_made_rounded,
+                                              size: 18,
                                               color: Colors.black,
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w800),
+                                            ),
+                                          ],
                                         ),
-                                        Icon(
-                                          Icons.call_made_rounded,
-                                          size: 18,
-                                          color: Colors.black,
+                                        width: w * 0.4,
+                                        height: h * 0.05,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.circular(20),
+                                          // image: DecorationImage(
+                                          //     image: AssetImage(
+                                          //         "assets/ApplyNow.png"
+                                          //     )
+                                          // ),
                                         ),
-                                      ],
-                                    ),
-                                    width: w * 0.4,
-                                    height: h * 0.05,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(20),
-                                      // image: DecorationImage(
-                                      //     image: AssetImage(
-                                      //         "assets/ApplyNow.png"
-                                      //     )
-                                      // ),
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ),
+                                  SizedBox(width: 10,),
+                                  Theme(
+                                    data: ThemeData(
+                                      elevatedButtonTheme: ElevatedButtonThemeData(
+                                        style: ElevatedButton.styleFrom(
+                                          onPrimary: Colors.blue,
+                                          primary: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                    child: ElevatedButton(
+                                        onPressed: () {
+                                          refFM.push().set({
+                                            "NAME": snapshot
+                                                .child('NAME')
+                                                .value
+                                                .toString(),
+                                            "LINK": snapshot
+                                                .child('LINK')
+                                                .value
+                                                .toString()
+                                          },
+                                          );
+                                        },
+                                        child: Text("Fav")),
+                                  ),
+                                ],
+                              )
                             ],
                           )),
                     ),

@@ -73,7 +73,10 @@ class HomePage extends StatelessWidget {
                                 ]
                               ),
                               borderRadius: BorderRadius.circular(12),
-                          border:Border(),
+                          border:Border(top: BorderSide(color: Colors.white,width: 2),
+                              right: BorderSide(color: Colors.white,width: 2),
+                          left: BorderSide(color: Colors.white,width: 2),
+                          bottom: BorderSide(color: Colors.white,width: 2)),
                           boxShadow: [
                             BoxShadow(color: Color(0xff8ecae6),
                             offset: Offset(2,2),
@@ -119,7 +122,11 @@ class HomePage extends StatelessWidget {
                                     offset: Offset(2,2),
                                     blurRadius: 2,
                                     spreadRadius: 2)
-                              ]),
+                              ],
+                            border:Border(top: BorderSide(color: Colors.white,width: 2),
+                                right: BorderSide(color: Colors.white,width: 2),
+                                left: BorderSide(color: Colors.white,width: 2),
+                                bottom: BorderSide(color: Colors.white,width: 2)),),
                         ),
                       ),
                     ],
@@ -158,7 +165,11 @@ class HomePage extends StatelessWidget {
                                     offset: Offset(2,2),
                                     blurRadius: 2,
                                     spreadRadius: 2)
-                              ]),
+                              ],
+                            border:Border(top: BorderSide(color: Colors.white,width: 2),
+                              right: BorderSide(color: Colors.white,width: 2),
+                              left: BorderSide(color: Colors.white,width: 2),
+                              bottom: BorderSide(color: Colors.white,width: 2)),),
                           width: 140,
                           height: 170,
                         ),
@@ -197,7 +208,11 @@ class HomePage extends StatelessWidget {
                                     offset: Offset(2,2),
                                     blurRadius: 2,
                                     spreadRadius: 2)
-                              ]
+                              ],
+                            border:Border(top: BorderSide(color: Colors.white,width: 2),
+                                right: BorderSide(color: Colors.white,width: 2),
+                                left: BorderSide(color: Colors.white,width: 2),
+                                bottom: BorderSide(color: Colors.white,width: 2)),
                           ),
                           width: 140,
                           height: 140,
