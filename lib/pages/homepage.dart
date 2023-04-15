@@ -1,15 +1,17 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:oppion/pages/live%20opportunity.dart';
 import 'package:oppion/pages/mentorshipfellowship.dart';
 import 'package:oppion/pages/opensource.dart';
+import 'package:oppion/pages/profile.dart';
 import 'package:oppion/pages/scholarship.dart';
 
 import '../utils/Card_custom.dart';
 import 'drawer.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +38,9 @@ class HomePage extends StatelessWidget {
           padding: EdgeInsets.all(28),
           child: Column(
             children: [
-              SizedBox(height: 10),
               Image.asset('assets/logo.png',
                 scale: 3,),
-              SizedBox(height: 40),
+
               //main category card
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -226,8 +227,9 @@ class HomePage extends StatelessWidget {
             ],
           ),
 
-        )
-    );
+        ),
 
+    );
   }
+
 }
