@@ -62,8 +62,28 @@ class _MentorshipState extends State<Mentorship> {
                     const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(20)),
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Color(0xff219ebc),
+                              Color(0xff8ecae6),
+                              Color(0xfff0f7f8)
+                            ]
+                          ),
+                          // borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(color: Color(0xff8ecae6),
+                              offset: Offset(2,2),
+                              blurRadius: 2,
+                              spreadRadius: 2)
+                        ],
+                        border:Border(
+                            right: BorderSide(color: Colors.white,width: 1,),
+                            bottom: BorderSide(color: Colors.white,width: 1),
+                        left: BorderSide(color:Colors.white,width: 1),
+                        top: BorderSide(color:Colors.white,width: 1)),
+                      borderRadius: BorderRadius.circular(10)),
                       // child: ListTile(
                       //   leading: Icon(Icons.person,color: Colors.white,),
                       //   title: Text(snapshot.child('A').value.toString()),
@@ -76,6 +96,7 @@ class _MentorshipState extends State<Mentorship> {
                       //   contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 8),
                       // ),
                       child: Container(
+                        
                           padding: EdgeInsets.all(10),
                           child: Column(
                             children: [
@@ -84,15 +105,15 @@ class _MentorshipState extends State<Mentorship> {
                                 child: Text(
                                   snapshot.child('NAME').value.toString(),
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Color(0xff023047),
                                     fontSize: 15,
                                     fontWeight: FontWeight.w800,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: Color(0xff8ecae6),
                                 ),
                                 padding: EdgeInsets.symmetric(
                                     vertical: 15, horizontal: 15),
@@ -120,22 +141,22 @@ class _MentorshipState extends State<Mentorship> {
                                             Text(
                                               'Apply Now',
                                               style: TextStyle(
-                                                  color: Colors.black,
+                                                  color: Color(0xff023047),
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.w800),
                                             ),
                                             Icon(
                                               Icons.call_made_rounded,
-                                              size: 18,
-                                              color: Colors.black,
+                                              size: 15,
+                                              color: Color(0xff219ebc),
                                             ),
                                           ],
                                         ),
                                         width: w * 0.4,
                                         height: h * 0.05,
                                         decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: BorderRadius.circular(20),
+                                          color: Color(0xff8ecae6),
+                                          borderRadius: BorderRadius.circular(15),
                                           // image: DecorationImage(
                                           //     image: AssetImage(
                                           //         "assets/ApplyNow.png"
@@ -150,8 +171,7 @@ class _MentorshipState extends State<Mentorship> {
                                     data: ThemeData(
                                       elevatedButtonTheme: ElevatedButtonThemeData(
                                         style: ElevatedButton.styleFrom(
-                                          onPrimary: Colors.blue,
-                                          primary: Colors.white,
+                                         backgroundColor: Color(0xffffb703)
                                         ),
                                       ),
                                     ),
@@ -169,7 +189,8 @@ class _MentorshipState extends State<Mentorship> {
                                           },
                                           );
                                         },
-                                        child: Text("Fav")),
+                                        child: Text("Fav",style: TextStyle(
+                                            color: Color(0xff023047),fontSize: 15),)),
                                   ),
                                 ],
                               )

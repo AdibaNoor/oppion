@@ -1,4 +1,5 @@
 
+import 'package:oppion/pages/drawer.dart';
 import 'package:oppion/pages/homepage.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
@@ -21,30 +22,32 @@ class _FavPageState extends State<FavPage> {
       double w = MediaQuery.of(context).size.width;
       double h = MediaQuery.of(context).size.height;
       return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xff023047),
         appBar: AppBar(
           leading: InkWell(
               onTap: () {
                 Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => HomePage()));
+                    MaterialPageRoute(builder: (context) => CustomDrawer()));
               },
               child: Icon(
                 Icons.arrow_back_ios_rounded,
-                color: Colors.black,
+                color:  Color(0xfffb8500),
               )),
           title: Text(
             'Favorites',
             style: TextStyle(
-              color: Colors.black,
+              color:  Color(0xfffb8500),
               fontSize: 22,
             ),
             textAlign: TextAlign.start,
           ),
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor:  Color(0xff023047),
         ),
         body: Column(
           children: [
+            Text('Mentorship & Fellowships',style: TextStyle(color:  Color(
+                0xfffb8500),fontSize: 20),),
             Expanded(
               child: FirebaseAnimatedList(
                   query: refFM,
@@ -54,33 +57,53 @@ class _FavPageState extends State<FavPage> {
                       const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
                       child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(20)),
+                            gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  Color(0xff219ebc),
+                                  Color(0xff8ecae6),
+                                  Color(0xfff0f7f8)
+                                ]
+                            ),
+                            // borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(color: Color(0xff8ecae6),
+                                  offset: Offset(2,2),
+                                  blurRadius: 2,
+                                  spreadRadius: 2)
+                            ],
+                            border:Border(
+                                right: BorderSide(color: Colors.white,width: 1,),
+                                bottom: BorderSide(color: Colors.white,width: 1),
+                                left: BorderSide(color:Colors.white,width: 1),
+                                top: BorderSide(color:Colors.white,width: 1)),
+                            borderRadius: BorderRadius.circular(10)),
                         child: Container(
                             padding: EdgeInsets.all(10),
                             child: Column(
                               children: [
-                                Container(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    "Fellowship & Mentorship",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w800,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    color: Colors.white,
-                                  ),
-                                  padding: EdgeInsets.symmetric(
-                                      vertical: 15, horizontal: 15),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
+                                // Container(
+                                //   alignment: Alignment.center,
+                                //   child: Text(
+                                //     "Fellowship & Mentorship",
+                                //     style: TextStyle(
+                                //       color: Colors.black,
+                                //       fontSize: 15,
+                                //       fontWeight: FontWeight.w800,
+                                //     ),
+                                //     textAlign: TextAlign.center,
+                                //   ),
+                                //   decoration: BoxDecoration(
+                                //     borderRadius: BorderRadius.circular(20),
+                                //     color: Colors.white,
+                                //   ),
+                                //   padding: EdgeInsets.symmetric(
+                                //       vertical: 15, horizontal: 15),
+                                // ),
+                                // SizedBox(
+                                //   height: 10,
+                                // ),
                                 Container(
                                   alignment: Alignment.center,
                                   child: Text(
@@ -146,11 +169,9 @@ class _FavPageState extends State<FavPage> {
                   }),
             ),
             SizedBox(
-              child: Container(
-                color: Colors.blue,
-              ),
               height: 5,
             ),
+            Text('Scholarships',style: TextStyle(color:  Color(0xfffb8500),fontSize: 20),),
             Expanded(
                 child: FirebaseAnimatedList(
                     query: refSchol,
@@ -160,33 +181,53 @@ class _FavPageState extends State<FavPage> {
                             vertical: 8, horizontal: 20),
                         child: Container(
                           decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.circular(20)),
+                              gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    Color(0xff219ebc),
+                                    Color(0xff8ecae6),
+                                    Color(0xfff0f7f8)
+                                  ]
+                              ),
+                              // borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(color: Color(0xff8ecae6),
+                                    offset: Offset(2,2),
+                                    blurRadius: 2,
+                                    spreadRadius: 2)
+                              ],
+                              border:Border(
+                                  right: BorderSide(color: Colors.white,width: 1,),
+                                  bottom: BorderSide(color: Colors.white,width: 1),
+                                  left: BorderSide(color:Colors.white,width: 1),
+                                  top: BorderSide(color:Colors.white,width: 1)),
+                              borderRadius: BorderRadius.circular(10)),
                           child: Container(
                               padding: EdgeInsets.all(10),
                               child: Column(
                                 children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "Scholarship",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w800,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      color: Colors.white,
-                                    ),
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 15, horizontal: 15),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
+                                  // Container(
+                                  //   alignment: Alignment.center,
+                                  //   child: Text(
+                                  //     "Scholarship",
+                                  //     style: TextStyle(
+                                  //       color: Colors.black,
+                                  //       fontSize: 15,
+                                  //       fontWeight: FontWeight.w800,
+                                  //     ),
+                                  //     textAlign: TextAlign.center,
+                                  //   ),
+                                  //   decoration: BoxDecoration(
+                                  //     borderRadius: BorderRadius.circular(20),
+                                  //     color: Colors.white,
+                                  //   ),
+                                  //   padding: EdgeInsets.symmetric(
+                                  //       vertical: 15, horizontal: 15),
+                                  // ),
+                                  // SizedBox(
+                                  //   height: 10,
+                                  // ),
                                   Container(
                                     alignment: Alignment.center,
                                     child: Text(
