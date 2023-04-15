@@ -13,21 +13,22 @@ class LiveOpportunity extends StatefulWidget {
 }
 
 class _LiveOpportunityState extends State<LiveOpportunity> {
-    final ref = FirebaseDatabase.instance.ref('Interships');
+    final ref = FirebaseDatabase.instance.ref('Internships');
     @override
     Widget build(BuildContext context) {
       double w = MediaQuery.of(context).size.width;
       double h = MediaQuery.of(context).size.height;
       return Scaffold(
+        backgroundColor: Color(0xff023047),
         appBar: AppBar(
           leading: InkWell(
               onTap: (){
                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> HomePage()));
               },
-              child: Icon(Icons.arrow_back_ios_rounded,color: Colors.black,)),
-          title: Text('Live Opportunities',style: TextStyle(color: Colors.black,fontSize: 22,),textAlign: TextAlign.start,),
+              child: Icon(Icons.arrow_back_ios_rounded,color: Color(0xfffb8500),)),
+          title: Text('Live Opportunities',style: TextStyle(color: Color(0xfffb8500),fontSize: 22,),textAlign: TextAlign.start,),
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xff023047),
         ),
         body: Column(
           children: [
@@ -40,7 +41,7 @@ class _LiveOpportunityState extends State<LiveOpportunity> {
                           vertical: 8, horizontal: 20),
                       child: Container(
                         decoration: BoxDecoration(
-                            color: Color(0xFFD58DE0),
+                            color: Color(0xfffb8500),
                             borderRadius: BorderRadius.circular(20)
                         ),
                         // child: ListTile(
@@ -61,7 +62,35 @@ class _LiveOpportunityState extends State<LiveOpportunity> {
                                 Container(
                                   alignment:Alignment.center,
                                   child: Text(snapshot
-                                      .child('NAME OF INTERNSHIP')
+                                      .child('COMPANY NAME')
+                                      .value
+                                      .toString(),
+                                    style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w800,),textAlign: TextAlign.center,),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Color(0xff023047),
+                                  ),
+                                  padding: EdgeInsets.symmetric(vertical: 15,horizontal: 15),
+                                ),
+                                SizedBox(height: 10,),
+                                Container(
+                                  alignment:Alignment.center,
+                                  child: Text(snapshot
+                                      .child('POSITION')
+                                      .value
+                                      .toString(),
+                                    style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.w800,),textAlign: TextAlign.center,),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.white,
+                                  ),
+                                  padding: EdgeInsets.symmetric(vertical: 15,horizontal: 15),
+                                ),
+                                SizedBox(height: 10,),
+                                Container(
+                                  alignment:Alignment.center,
+                                  child: Text(snapshot
+                                      .child('WEEKS')
                                       .value
                                       .toString(),
                                     style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.w800,),textAlign: TextAlign.center,),
