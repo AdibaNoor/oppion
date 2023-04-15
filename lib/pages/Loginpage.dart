@@ -129,7 +129,10 @@ class _LoginpageState extends State<Loginpage> {
 
   Future signIn() async {
     showDialog(context: context, barrierDismissible: false,
-    builder: (context) => Center(child: CircularProgressIndicator()),);
+    builder: (context) => Center(child: CircularProgressIndicator(
+      backgroundColor: Color(0xff023047),
+      color: Color(0xfffb8500),
+    )),);
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailController.text.trim(),

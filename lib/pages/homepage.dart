@@ -16,26 +16,30 @@ class HomePage extends StatelessWidget {
 
 
     return Scaffold(
+      backgroundColor: Color(0xff023047),
       appBar: AppBar(
-        title: Text('Home'),
+        elevation: 0,
+        backgroundColor: Color(0xff023047),
+        title: Text('Home',style: TextStyle(color: Color(0xfffb8500),fontSize: 24),),
         leading: GestureDetector(
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => CustomDrawer()));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CustomDrawer()));
           },
           child: Icon(
             Icons.dashboard,
-            color: Colors.white,
+            color: Color(0xff8ecae6),
           ),
         ),
 
       ),
         body: Padding(
-          padding: EdgeInsets.all(32),
+          padding: EdgeInsets.all(28),
           child: Column(
             children: [
+              SizedBox(height: 10),
+              Image.asset('assets/logo.png',
+                scale: 3,),
               SizedBox(height: 40),
-              FlutterLogo(size: 120),
-              SizedBox(height: 80),
               //main category card
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -59,8 +63,23 @@ class HomePage extends StatelessWidget {
                           width: 140,
                           height: 140,
                           decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.circular(12)),
+                              gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  Color(0xff8ecae6),
+                                  Color(0xffbde0f5),
+                                  Color(0xfff1f6f6)
+                                ]
+                              ),
+                              borderRadius: BorderRadius.circular(12),
+                          border:Border(),
+                          boxShadow: [
+                            BoxShadow(color: Color(0xff8ecae6),
+                            offset: Offset(2,2),
+                            blurRadius: 2,
+                            spreadRadius: 2)
+                          ]),
                         ),
                       ),
                       SizedBox(
@@ -85,12 +104,27 @@ class HomePage extends StatelessWidget {
                           width: 140,
                           height: 170,
                           decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.circular(12)),
+                              gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    Color(0xff8ecae6),
+                                    Color(0xffbde0f5),
+                                    Color(0xfff1f6f6)
+                                  ]
+                              ),
+                              borderRadius: BorderRadius.circular(12),
+                              boxShadow: [
+                                BoxShadow(color: Color(0xff8ecae6),
+                                    offset: Offset(2,2),
+                                    blurRadius: 2,
+                                    spreadRadius: 2)
+                              ]),
                         ),
                       ),
                     ],
                   ),
+                  SizedBox(width: 15,),
                   Column(
                     children: [
                       InkWell(
@@ -109,8 +143,22 @@ class HomePage extends StatelessWidget {
                                 textAlign: TextAlign.center,
                               )),
                           decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.circular(12)),
+                              gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    Color(0xff8ecae6),
+                                    Color(0xffbde0f5),
+                                    Color(0xfff1f6f6)
+                                  ]
+                              ),
+                              borderRadius: BorderRadius.circular(12),
+                              boxShadow: [
+                                BoxShadow(color: Color(0xff8ecae6),
+                                    offset: Offset(2,2),
+                                    blurRadius: 2,
+                                    spreadRadius: 2)
+                              ]),
                           width: 140,
                           height: 170,
                         ),
@@ -133,8 +181,23 @@ class HomePage extends StatelessWidget {
                                     fontSize: 18, fontWeight: FontWeight.w600),
                               )),
                           decoration: BoxDecoration(
-                            color: Colors.blue,
+                            gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  Color(0xff8ecae6),
+                                  Color(0xffbde0f5),
+                                  Color(0xfff1f6f6)
+                                ]
+                            ),
+
                             borderRadius: BorderRadius.circular(12),
+                              boxShadow: [
+                                BoxShadow(color: Color(0xff8ecae6),
+                                    offset: Offset(2,2),
+                                    blurRadius: 2,
+                                    spreadRadius: 2)
+                              ]
                           ),
                           width: 140,
                           height: 140,
