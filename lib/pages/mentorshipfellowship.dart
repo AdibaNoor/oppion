@@ -128,7 +128,6 @@ class _MentorshipState extends State<Mentorship> {
                         //   contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 8),
                         // ),
                         child: Container(
-
                             padding: EdgeInsets.all(10),
                             child: Column(
                               children: [

@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:oppion/notificationServices.dart';
 import 'package:oppion/pages/live%20opportunity.dart';
 import 'package:oppion/pages/mentorshipfellowship.dart';
 import 'package:oppion/pages/opensource.dart';
@@ -10,12 +11,29 @@ import 'package:oppion/pages/scholarship.dart';
 import '../utils/Card_custom.dart';
 import 'drawer.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
    const HomePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  State<HomePage> createState() => _HomePageState();
+}
 
+class _HomePageState extends State<HomePage> {
+  NotificationServices notificationServices = NotificationServices();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    notificationServices.requestNotificationPermissions();
+    notificationServices.firebaseInit();
+    notificationServices.getDeviceToken().then((value){
+      print("Device token");
+      print(value);
+    });
+    notificationServices.isTokenRefresh();
+  }
+  @override
+  Widget build(BuildContext context) {
 
     return Scaffold(
       backgroundColor: Color(0xff023047),
@@ -231,5 +249,4 @@ class HomePage extends StatelessWidget {
 
     );
   }
-
 }

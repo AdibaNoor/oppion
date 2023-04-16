@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:oppion/pages/AuthPage.dart';
 import 'package:oppion/pages/Loginpage.dart';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:oppion/pages/Utils.dart';
 import 'package:oppion/pages/homepage.dart';
@@ -13,11 +13,14 @@ import 'package:oppion/pages/verifyemailpage.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(MyApp());
 }
-
+@pragma('vm:entry-point')
 final navigatorKey = GlobalKey<NavigatorState>();
-
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message)async{
+  await Firebase.initializeApp();
+}
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
