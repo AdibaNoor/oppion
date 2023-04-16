@@ -4,6 +4,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:oppion/pages/favpage.dart';
 
 class NotificationServices {
 
@@ -36,12 +37,13 @@ class NotificationServices {
       event.toString();
     });
   }
-  void firebaseInit(){
+  void firebaseInit(BuildContext context){
     FirebaseMessaging.onMessage.listen((message) {
       if(kDebugMode){
         print(message.notification!.title.toString());
         print(message.notification!.body.toString());
       }
+      initLocalNotifications(context, message);
       showNotification(message);
     });
   }
@@ -54,7 +56,7 @@ class NotificationServices {
     await _flutterLocalNotificationsPlugin.initialize(
       initializationSetting,
       onDidReceiveNotificationResponse: (payload){
-
+       handleMessage(context, message);
       }
     );
   }
@@ -81,6 +83,22 @@ class NotificationServices {
           notificationDetails);
     }
     );
+  }
+  void handleMessage(BuildContext context , RemoteMessage message){
+    if(message.data['type'] == 'msg'){
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> FavPage()));
+    }
+  }
+  Future<void> setUpInteractMessage(BuildContext context)async{
+    RemoteMessage? initialMessage = await FirebaseMessaging.instance.getInitialMessage();
+
+    if(initialMessage != null){
+      handleMessage(context, initialMessage);
+    }
+    //when app is in background
+    FirebaseMessaging.onMessageOpenedApp.listen((event) {
+      handleMessage(context, event);
+    });
   }
 }
 
